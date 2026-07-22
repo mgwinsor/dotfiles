@@ -10,9 +10,14 @@ else
   fi
 fi
 
-alias l='ls -CF'      # List files, with folder/file type indicators
-alias la='ls -A'      # List all files, including hidden (but not . and ..)
-alias ll='ls -alF'    # List all files, long format, with type indicators
-alias lsa='ls -la'    # List all files, long format
+if command -v eza >/dev/null 2>&1; then
+  alias l='eza --icons'               # List files, with folder/file type indicators
+  alias la='eza -a --icons'           # List all files, including hidden (but not . and ..)
+  alias ll='eza -lahF --icons --git'  # List all files, long format, with type indicators and git status
+else
+  alias l='ls -CF'      # List files, with folder/file type indicators
+  alias la='ls -A'      # List all files, including hidden (but not . and ..)
+  alias ll='ls -alF'    # List all files, long format, with type indicators
+fi
 
 alias v='nvim'
