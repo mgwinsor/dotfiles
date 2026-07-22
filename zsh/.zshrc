@@ -42,7 +42,7 @@ _cache_source() {
 }
 
 # fzf
-[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
+command -v fzf &> /dev/null && source <(fzf --zsh)
 
 # Starship
 command -v starship &> /dev/null && _cache_source starship init zsh
