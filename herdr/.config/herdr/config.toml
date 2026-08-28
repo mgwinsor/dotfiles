@@ -181,8 +181,7 @@ pane_outer_borders = true
 pane_scrollbars = false
 pane_gaps = true
 
-# Show detected/reported agent labels in split pane borders when no manual pane name is set.
-# show_agent_labels_on_pane_borders = false
+show_agent_labels_on_pane_borders = true
 
 # Hide the tab row when a workspace has exactly one tab.
 # New tabs can still be created with the configured keybinding.
@@ -211,7 +210,7 @@ pane_gaps = true
 
 # Agent status indicators: "dots" preserves the compact color marks; "symbols" uses
 # distinct static glyphs for blocked, working, done, idle, and unknown states.
-# status_indicators = "dots"
+status_indicators = "symbols"
 
 # Expanded agent rows. Built-ins are state_icon, state_text, workspace, tab, pane, agent,
 # terminal_title, and terminal_title_stripped.
@@ -244,11 +243,11 @@ pane_gaps = true
 # herdr = show in-app toasts
 # terminal = ask the outer terminal to show a desktop notification
 # system = ask the OS notification service directly
-# delivery = "off"
+delivery = "herdr"
 # delay_seconds = 1
 
 [ui.toast.herdr]
-# position = "bottom-right"
+position = "top-right"
 
 [ui.toast.clipboard]
 # enabled = true
