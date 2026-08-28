@@ -27,6 +27,22 @@ fi
 echo "📦 Installing Homebrew packages from Brewfile..."
 brew bundle --file="$SCRIPT_DIR/Brewfile"
 
+if command -v herdr &> /dev/null; then
+	echo "✅ Herdr is already installed."
+else
+	echo "📦 Installing Herdr..."
+	export HERDR_INSTALL_DIR="${HERDR_INSTALL_DIR:-$HOME/.local/bin}"
+	curl -fsSL https://herdr.dev/install.sh | sh
+	export PATH="$HERDR_INSTALL_DIR:$PATH"
+fi
+
+if [[ "$(herdr plugin list --json)" == *'"id":"herdr-nvim-nav"'* ]]; then
+	echo "✅ Herdr Neovim navigation plugin is already installed."
+else
+	echo "📦 Installing Herdr Neovim navigation plugin..."
+	herdr plugin install aimdevlee/herdr-nvim-nav --yes
+fi
+
 TPM_DIR="$HOME/.tmux/plugins/tpm"
 CATPPUCCIN_DIR="$HOME/.config/tmux/plugins/catppuccin/tmux"
 
@@ -47,4 +63,5 @@ else
 fi
 
 echo "📦 Stowing dotfiles..."
-stow -d "$SCRIPT_DIR" --target "$HOME" nvim tmux zsh starship ghostty alacritty taskwarrior opencode
+mkdir -p "$HOME/.config/herdr"
+stow -d "$SCRIPT_DIR" --target "$HOME" nvim tmux zsh starship ghostty alacritty taskwarrior opencode herdr

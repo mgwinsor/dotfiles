@@ -16,7 +16,6 @@ brew "fd"
 brew "antidote"
 
 # tmux helpers
-brew "aichat"
 brew "sesh"
 
 # Tools required by nvim config that are managed by Homebrew rather than
