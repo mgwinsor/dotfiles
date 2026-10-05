@@ -47,7 +47,7 @@ urgency.tags.coefficient=0.0                 # tags are context, not priority
 urgency.user.tag.someday.coefficient = -10.0 # tracking long-term tasks, not urgent
 urgency.user.tag.waiting.coefficient = -5.0  # waiting on something else, not urgent
 
-news.version=3.4.2
+news.version=3.5.0
 
 # Sync
 sync.aws.region=ap-southeast-1
